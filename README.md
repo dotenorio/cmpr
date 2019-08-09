@@ -1,2 +1,2 @@
-# cmpr
-CMPR - Custo Médio Por Reunião
+# CMPR
+Custo Médio Por Reunião
