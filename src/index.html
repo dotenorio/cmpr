@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CMPR - Custo Médio Por Reunião</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>CMPR</h1>
+    <h2>Custo Médio Por Reunião</h2>
+
+    <p>Salários:</p>
+    <div id="salariesBox">
+      <label>
+        <span>R$</span>
+        <input
+          type="number"
+          name="salaries[]"
+          placeholder="0.00"
+          value="998.00"
+        />
+      </label>
+    </div>
+    <br />
+    <div>
+      <button id="addSalary">Adicionar Salário</button>
+      <button id="start">Iniciar!</button>
+    </div>
+
+    <p>Está custando:</p>
+    <div id="value">
+      <span id="currency">R$</span>
+      <span id="float">0.00</span>
+    </div>
+
+    <p>Começou:</p>
+    <div id="initClock">00/00/0000 00:00:00</div>
+
+    <p>Agora são:</p>
+    <div id="actualClock">00/00/0000 00:00:00</div>
+
+    <p>Já dura:</p>
+    <div id="duration">0 minutos</div>
+
+    <script type="text/javascript" src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+{
+  "name": "cmpr",
+  "version": "1.0.0",
+  "description": "Calculador de custo médio por reunião",
+  "main": "./src/index.html",
+  "license": "MIT",
+  "devDependencies": {
+    "commitizen": "^3.1.1",
+    "commitplease": "^3.2.0",
+    "eslint": "^6.0.1",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "git-cz": "^3.2.1",
+    "husky": "^2.7.0",
+    "lint-staged": "^9.2.1",
+    "lite-server": "^2.5.3",
+    "prettier": "1.18.2"
+  },
+  "scripts": {
+    "dev": "lite-server",
+    "lint": "eslint --fix '**/*.js' ./"
+  },
+  "lint-staged": {
+    "*.{js,css,json,md}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "repository": "git@github.com:dotenorio/cmpr.git",
+  "author": "Fernando Migliorini Tenorio <dotenorio@gmail.com> (https://dotenorio.com)",
+  "private": false
+}
