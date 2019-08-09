@@ -2,6 +2,10 @@
 
 Custo Médio Por Reunião
 
+## Preview
+
+> ![ScreenShot](https://github.com/dotenorio/cmpr/blob/master/screenshot.png)
+
 ## TODO
 
 - Criar opção de remover input de salário
