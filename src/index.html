@@ -29,8 +29,19 @@
     <h1>CMPR</h1>
     <h2>Custo Médio Por Reunião</h2>
 
+    <div id="alert"></div>
+
     <p>Salários:</p>
     <div id="salariesBox">
+      <label>
+        <span>R$</span>
+        <input
+          type="number"
+          name="salaries[]"
+          placeholder="0.00"
+          value="998.00"
+        />
+      </label>
       <label>
         <span>R$</span>
         <input
@@ -43,8 +54,8 @@
     </div>
     <br />
     <div>
-      <button id="addSalary">Adicionar Salário</button>
-      <button id="start">Iniciar!</button>
+      <button id="addSalary">+ Adicionar Salário</button>
+      <button id="start">&gt; Iniciar</button>
     </div>
 
     <p>Está custando:</p>

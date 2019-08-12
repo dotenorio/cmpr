@@ -4,8 +4,6 @@ Custo Médio Por Reunião
 
 ## TODO
 
-- Criar opção de remover input de salário
-- Criar validação para ter ao menos 2 valores e serem válidos
 - Criar opção de cadastrar somente a média de salários envolvidos
 - Criar botão para encerrar a reunião
 - Criar recurso para baixar relatório da reunião (em JSON, CSV ou PDF)

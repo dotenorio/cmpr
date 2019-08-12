@@ -4,3 +4,8 @@ p {
 label {
   display: block;
 }
+#alert {
+  display: none;
+  color: red;
+  font-weight: bold;
+}

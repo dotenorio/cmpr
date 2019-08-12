@@ -78,16 +78,45 @@ addSalary.addEventListener('click', () => {
   input.setAttribute('name', 'salaries[]')
   input.setAttribute('placeholder', '0.00')
 
+  const a = document.createElement('a')
+  a.setAttribute('href', 'javascript:void(0)')
+  a.innerHTML = '&times;'
+  a.addEventListener('click', e => {
+    e.preventDefault()
+    e.target.parentNode.remove()
+  })
+
   label.appendChild(span)
   label.appendChild(input)
+  label.appendChild(a)
+
   salariesBox.appendChild(label)
 })
 
 const start = document.querySelector('#start')
 start.addEventListener('click', () => {
-  const inputSalaries = document.querySelectorAll('input[name="salaries[]"]')
-  const salaries = [...inputSalaries].map(inputSalary => {
-    return inputSalary.value
-  })
+  const inputSalaries = [
+    ...document.querySelectorAll('input[name="salaries[]"]')
+  ]
+
+  const salaries = inputSalaries
+    .map(inputSalary => {
+      return inputSalary.value
+    })
+    .filter(salary => {
+      return salary !== ''
+    })
+
+  const alert = document.querySelector('#alert')
+
+  if (salaries.length < 2) {
+    alert.innerHTML =
+      'Eu preciso de ao menos dois salários válidos para iniciar uma reunião :)'
+    alert.style.display = 'block'
+    return
+  }
+
+  alert.innerHTML = ''
+  alert.style.display = 'none'
   initMeet(salaries)
 })
