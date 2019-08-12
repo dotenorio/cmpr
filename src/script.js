@@ -50,12 +50,24 @@ function clock () {
   }, 1000)
 }
 
-function initMeet (salaries) {
+function erase () {
+  const float = document.querySelector('#float')
+  float.innerHTML = 0.0
+}
+
+function getSalaryPerMinute (salary) {
+  const salaryPerDay = salary / 30
+  const salaryPerHour = salaryPerDay / 8
+  const salaryPerMinute = salaryPerHour / 60
+  return salaryPerMinute
+}
+
+function initMeetSalary (salaries) {
+  erase()
+
   const average =
     salaries.reduce((total, salary) => {
-      const salaryPerDay = salary / 30
-      const salaryPerHour = salaryPerDay / 8
-      const salaryPerMinute = salaryPerHour / 60
+      const salaryPerMinute = getSalaryPerMinute(salary)
       return salaryPerMinute + total
     }, 0) / salaries.length
 
@@ -63,6 +75,31 @@ function initMeet (salaries) {
   adjustValue(average, startTime)
   clock()
 }
+
+function initMeetAverage (salary) {
+  erase()
+  const average = getSalaryPerMinute(salary)
+  const startTime = initTheClock()
+  adjustValue(average, startTime)
+  clock()
+}
+
+const registrationOptions = document.querySelectorAll(
+  'input[name="registrationOption"]'
+)
+registrationOptions.forEach(option => {
+  option.addEventListener('change', e => {
+    const divsOptions = document.querySelectorAll('.registrationBox')
+    divsOptions.forEach(div => {
+      div.style.display = 'none'
+    })
+
+    let value = e.target.value
+    value = value.charAt(0).toUpperCase() + value.slice(1)
+    const div = document.querySelector(`#registration${value}`)
+    div.style.display = 'block'
+  })
+})
 
 const addSalary = document.querySelector('#addSalary')
 addSalary.addEventListener('click', () => {
@@ -93,8 +130,8 @@ addSalary.addEventListener('click', () => {
   salariesBox.appendChild(label)
 })
 
-const start = document.querySelector('#start')
-start.addEventListener('click', () => {
+const startSalary = document.querySelector('#startSalary')
+startSalary.addEventListener('click', () => {
   const inputSalaries = [
     ...document.querySelectorAll('input[name="salaries[]"]')
   ]
@@ -118,5 +155,11 @@ start.addEventListener('click', () => {
 
   alert.innerHTML = ''
   alert.style.display = 'none'
-  initMeet(salaries)
+  initMeetSalary(salaries)
+})
+
+const startAverage = document.querySelector('#startAverage')
+startAverage.addEventListener('click', () => {
+  const salary = document.querySelector('input[name="salaryAverage"]')
+  initMeetAverage(salary.value)
 })

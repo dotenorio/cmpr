@@ -31,31 +31,60 @@
 
     <div id="alert"></div>
 
-    <p>Salários:</p>
-    <div id="salariesBox">
-      <label>
-        <span>R$</span>
-        <input
-          type="number"
-          name="salaries[]"
-          placeholder="0.00"
-          value="998.00"
-        />
-      </label>
-      <label>
-        <span>R$</span>
-        <input
-          type="number"
-          name="salaries[]"
-          placeholder="0.00"
-          value="998.00"
-        />
-      </label>
+    <p>Opções de Cadastro:</p>
+    <label>
+      <input type="radio" name="registrationOption" value="salaries" checked />
+      <span>Cadastrar Salários</span>
+    </label>
+    <label>
+      <input type="radio" name="registrationOption" value="average" />
+      <span>Média Salarial</span>
+    </label>
+
+    <div id="registrationSalaries" class="registrationBox">
+      <p>Salários:</p>
+      <div id="salariesBox">
+        <label>
+          <span>R$</span>
+          <input
+            type="number"
+            name="salaries[]"
+            placeholder="0.00"
+            value="998.00"
+          />
+        </label>
+        <label>
+          <span>R$</span>
+          <input
+            type="number"
+            name="salaries[]"
+            placeholder="0.00"
+            value="998.00"
+          />
+        </label>
+      </div>
+      <br />
+      <div>
+        <button id="addSalary">+ Adicionar Salário</button>
+        <button id="startSalary">&gt; Iniciar</button>
+      </div>
     </div>
-    <br />
-    <div>
-      <button id="addSalary">+ Adicionar Salário</button>
-      <button id="start">&gt; Iniciar</button>
+
+    <div id="registrationAverage" class="registrationBox">
+      <p>Média Salarial:</p>
+      <label>
+        <span>R$</span>
+        <input
+          type="number"
+          name="salaryAverage"
+          placeholder="0.00"
+          value="998.00"
+        />
+      </label>
+      <br />
+      <div>
+        <button id="startAverage">&gt; Iniciar</button>
+      </div>
     </div>
 
     <p>Está custando:</p>

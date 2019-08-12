@@ -9,3 +9,6 @@ label {
   color: red;
   font-weight: bold;
 }
+#registrationAverage {
+  display: none;
+}
