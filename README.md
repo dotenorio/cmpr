@@ -4,11 +4,16 @@ Custo Médio Por Reunião
 
 ## Preview
 
-> ![ScreenShot](https://github.com/dotenorio/cmpr/blob/master/screenshot.png)
+> ![Screenshot: Start Salary](https://github.com/dotenorio/cmpr/blob/master/screenshots/start-salary.png)
+
+> ![Screenshot: Start Average](https://github.com/dotenorio/cmpr/blob/master/screenshots/start-average.png)
+
+> ![Screenshot: In Meeting](https://github.com/dotenorio/cmpr/blob/master/screenshots/in-meeting.png)
+
+> ![Screenshot: Resume](https://github.com/dotenorio/cmpr/blob/master/screenshots/resume.png)
 
 ## TODO
 
-- Criar botão para encerrar a reunião
 - Criar recurso para baixar relatório da reunião (em JSON, CSV ou PDF)
 - Criar uma folha de estilos para a ferramenta
 - Configurar now.json
