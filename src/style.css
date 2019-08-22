@@ -12,3 +12,22 @@ label {
 #registrationAverage {
   display: none;
 }
+#formStart {
+  display: block;
+}
+#boxMeeting,
+#formStop,
+#resume {
+  display: none;
+}
+dl > dt {
+  font-weight: bold;
+  width: 100px;
+  display: inline-block;
+}
+dl > dd {
+  width: 200px;
+  display: inline-block;
+  margin-inline-start: 0;
+  vertical-align: text-top;
+}
