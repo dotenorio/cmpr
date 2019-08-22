@@ -22,7 +22,9 @@ Custo Médio Por Reunião
 
 ## TODO
 
-- Criar recurso para baixar relatório da reunião (em JSON, CSV ou PDF)
+- Relatório: Adicionar opção de cadastro utilizada na reunião
+- Relatório: Mostrar salários ou média salarial cadastrada
+- Relatório: Criar recurso para baixar relatório da reunião (em JSON, CSV ou PDF)
 - Criar uma folha de estilos para a ferramenta
 - Configurar now.json
 - Criar campo para definir horas trabalhadas no mês por salário
