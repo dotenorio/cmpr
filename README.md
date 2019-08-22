@@ -2,13 +2,13 @@
 
 Custo Médio Por Reunião
 
-## Preview
+## Screenshots
 
 ### Iniciar com salário
 
 > ![Screenshot: Start Salary](https://github.com/dotenorio/cmpr/blob/master/screenshots/start-salary.png)
 
-### Iniciar média salarial
+### Iniciar com média salarial
 
 > ![Screenshot: Start Average](https://github.com/dotenorio/cmpr/blob/master/screenshots/start-average.png)
 
