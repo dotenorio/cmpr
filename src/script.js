@@ -1,5 +1,6 @@
 let adjustValueInterval = null
 let clockInterval = null
+const resumeObject = {}
 
 function initTheClock () {
   const initClock = document.querySelector('#initClock')
@@ -48,6 +49,12 @@ function clock () {
 function erase () {
   const cost = document.querySelector('#cost')
   cost.innerHTML = 0.0
+
+  const resumeSalaries = document.querySelector('#resumeSalaries')
+  resumeSalaries.style.display = 'none'
+
+  const resumeAverage = document.querySelector('#resumeAverage')
+  resumeAverage.style.display = 'none'
 
   clearInterval(adjustValueInterval)
   clearInterval(clockInterval)
@@ -120,6 +127,9 @@ registrationOptions.forEach(option => {
     value = value.charAt(0).toUpperCase() + value.slice(1)
     const div = document.querySelector(`#registration${value}`)
     div.style.display = 'block'
+
+    console.log(value)
+    resumeObject.registrationOption = value
   })
 })
 
@@ -178,16 +188,32 @@ startSalary.addEventListener('click', () => {
   alert.innerHTML = ''
   alert.style.display = 'none'
   initMeetSalary(salaries)
+
+  const currency = document.querySelector('#currency').innerText
+  resumeObject.salaries = salaries
+    .map(salary => {
+      return `${currency} ${salary}`
+    })
+    .join('\n')
 })
 
 const startAverage = document.querySelector('#startAverage')
 startAverage.addEventListener('click', () => {
   const salary = document.querySelector('input[name="salaryAverage"]')
   initMeetAverage(salary.value)
+  resumeObject.average = salary.value
 })
 
 const stopMeet = document.querySelector('#stopMeet')
 stopMeet.addEventListener('click', () => {
+  console.log(resumeObject.registrationOption)
+  const registrationOption = resumeObject.registrationOption || 'Salaries'
+  const registrationOptionText =
+    registrationOption === 'Salaries' ? 'Salários' : 'Média Salarial'
+
+  const salaries = resumeObject.salaries
+  const average = resumeObject.average
+
   const currency = document.querySelector('#currency').innerText
   const cost = document.querySelector('#cost').innerText
   const initClock = document.querySelector('#initClock').innerText
@@ -196,6 +222,20 @@ stopMeet.addEventListener('click', () => {
   erase()
   toggleForm()
 
+  document.querySelector(
+    '#resumeRegistrationOption > dd'
+  ).innerText = registrationOptionText
+
+  console.log(registrationOption)
+  document.querySelector(`#resume${registrationOption}`).style.display =
+    'block'
+  document.querySelector('#resumeSalaries > dd').innerText = salaries
+  document.querySelector(
+    '#resumeAverage > dd'
+  ).innerText = `${currency} ${average}`
+
+  document.querySelector('#resumeCost > dd').innerText = `${currency} ${cost}`
+  document.querySelector('#resumeCost > dd').innerText = `${currency} ${cost}`
   document.querySelector('#resumeCost > dd').innerText = `${currency} ${cost}`
   document.querySelector('#resumeInitClock > dd').innerText = initClock
   document.querySelector('#resumeDuration > dd').innerText = duration
