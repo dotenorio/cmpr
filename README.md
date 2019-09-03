@@ -25,4 +25,3 @@ Custo Médio Por Reunião
 - Criar uma folha de estilos para a ferramenta
 - Configurar now.json
 - Colocar valor e tempo no titulo da paǵina
-- Criar campo para definir horas trabalhadas no mês por salário
