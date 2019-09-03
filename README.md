@@ -24,3 +24,7 @@ Custo Médio Por Reunião
 
 - Criar uma folha de estilos para a ferramenta
 - Configurar now.json
+
+## Deixe sua estrela
+
+:star: :star: :star:
