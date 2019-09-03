@@ -24,4 +24,3 @@ Custo Médio Por Reunião
 
 - Criar uma folha de estilos para a ferramenta
 - Configurar now.json
-- Colocar valor e tempo no titulo da paǵina

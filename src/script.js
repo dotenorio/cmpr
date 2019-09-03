@@ -1,5 +1,8 @@
 let adjustValueInterval = null
 let clockInterval = null
+let titleInterval = null
+
+const originalTitle = document.title
 const resumeObject = {}
 
 function initTheClock () {
@@ -50,8 +53,11 @@ function erase () {
   const cost = document.querySelector('#cost')
   cost.innerHTML = 0.0
 
+  document.title = originalTitle
+
   clearInterval(adjustValueInterval)
   clearInterval(clockInterval)
+  clearInterval(titleInterval)
 }
 
 function getSalaryPerMinute (salary) {
@@ -75,6 +81,33 @@ function toggleForm () {
   })
 }
 
+function title () {
+  const currency = document.querySelector('#currency').innerText
+  const cost = document.querySelector('#cost').innerText
+  const duration = document.querySelector('#duration').innerText
+
+  document.title = `${currency} ${cost} / ${duration} :: ${originalTitle}`
+}
+
+function initMeetIntervals (average, startTime) {
+  adjustValue(average, startTime)
+  clock()
+  toggleForm()
+  title()
+
+  adjustValueInterval = setInterval(() => {
+    adjustValue(average, startTime)
+  }, 60000)
+
+  clockInterval = setInterval(() => {
+    clock()
+  }, 1000)
+
+  titleInterval = setInterval(() => {
+    title()
+  }, 60000)
+}
+
 function initMeetSalary (salaries) {
   erase()
 
@@ -85,26 +118,15 @@ function initMeetSalary (salaries) {
     }, 0) / salaries.length
 
   const startTime = initTheClock()
-  adjustValue(average, startTime)
-  clock()
-  toggleForm()
 
-  adjustValueInterval = setInterval(() => {
-    adjustValue(average, startTime)
-  }, 60000)
-
-  clockInterval = setInterval(() => {
-    clock()
-  }, 1000)
+  initMeetIntervals(average, startTime)
 }
 
 function initMeetAverage (salary) {
   erase()
   const average = getSalaryPerMinute(salary)
   const startTime = initTheClock()
-  adjustValue(average, startTime)
-  clock()
-  toggleForm()
+  initMeetIntervals(average, startTime)
 }
 
 const registrationOptions = document.querySelectorAll(
