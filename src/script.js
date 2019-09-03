@@ -50,12 +50,6 @@ function erase () {
   const cost = document.querySelector('#cost')
   cost.innerHTML = 0.0
 
-  const resumeSalaries = document.querySelector('#resumeSalaries')
-  resumeSalaries.style.display = 'none'
-
-  const resumeAverage = document.querySelector('#resumeAverage')
-  resumeAverage.style.display = 'none'
-
   clearInterval(adjustValueInterval)
   clearInterval(clockInterval)
 }
@@ -128,7 +122,6 @@ registrationOptions.forEach(option => {
     const div = document.querySelector(`#registration${value}`)
     div.style.display = 'block'
 
-    console.log(value)
     resumeObject.registrationOption = value
   })
 })
@@ -226,7 +219,9 @@ stopMeet.addEventListener('click', () => {
     '#resumeRegistrationOption > dd'
   ).innerText = registrationOptionText
 
-  console.log(registrationOption)
+  document.querySelectorAll('#resumeSalaries, #resumeAverage').forEach(el => {
+    el.style.display = 'none'
+  })
   document.querySelector(`#resume${registrationOption}`).style.display =
     'block'
   document.querySelector('#resumeSalaries > dd').innerText = salaries
