@@ -1,3 +1,13 @@
+a {
+  color: #444;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:active {
+  color: #000;
+}
 p {
   font-weight: bold;
 }
@@ -30,4 +40,10 @@ dl > dd {
   display: inline-block;
   margin-inline-start: 0;
   vertical-align: text-top;
+}
+#poweredBy {
+  font-size: 14px;
+}
+#heart {
+  color: red;
 }
