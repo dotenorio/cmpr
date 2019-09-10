@@ -61,9 +61,26 @@ function erase () {
 }
 
 function getSalaryPerMinute (salary) {
-  const salaryPerDay = salary / 30
-  const salaryPerHour = salaryPerDay / 8
-  const salaryPerMinute = salaryPerHour / 60
+  const hoursPerMonthElement = document.querySelector(
+    'input[name="hoursPerMonth"]'
+  )
+
+  const alert = document.querySelector('#alert')
+
+  if (!hoursPerMonthElement.value) {
+    alert.innerHTML = `
+      Eu preciso da quantidade de horas que os envolvidos trabalham por mês para iniciar uma reunião :) <br>
+      <i>${hoursPerMonthElement.parentNode.title}</i>
+    `
+    alert.style.display = 'block'
+    return
+  }
+
+  alert.innerHTML = ''
+  alert.style.display = 'none'
+
+  const hoursPerMonth = hoursPerMonthElement.value
+  const salaryPerMinute = salary / hoursPerMonth
   return salaryPerMinute
 }
 
@@ -116,6 +133,8 @@ function initMeetSalary (salaries) {
       const salaryPerMinute = getSalaryPerMinute(salary)
       return salaryPerMinute + total
     }, 0) / salaries.length
+
+  if (!average) return
 
   const startTime = initTheClock()
 
@@ -221,7 +240,6 @@ startAverage.addEventListener('click', () => {
 
 const stopMeet = document.querySelector('#stopMeet')
 stopMeet.addEventListener('click', () => {
-  console.log(resumeObject.registrationOption)
   const registrationOption = resumeObject.registrationOption || 'Salaries'
   const registrationOptionText =
     registrationOption === 'Salaries' ? 'Salários' : 'Média Salarial'
