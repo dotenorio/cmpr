@@ -4,6 +4,10 @@ Custo Médio Por Reunião
 
 ## Screenshots
 
+### Parâmetros
+
+> ![Screenshot: Parameters](https://github.com/dotenorio/cmpr/blob/master/screenshots/parameters.png)
+
 ### Iniciar com salário
 
 > ![Screenshot: Start Salary](https://github.com/dotenorio/cmpr/blob/master/screenshots/start-salary.png)
