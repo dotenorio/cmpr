@@ -182,7 +182,7 @@ addSalary.addEventListener('click', () => {
   a.innerHTML = '<button class="red">&times;</button>'
   a.addEventListener('click', e => {
     e.preventDefault()
-    e.target.parentNode.remove()
+    e.currentTarget.parentNode.remove()
   })
 
   label.appendChild(span)
