@@ -1,57 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>CMPR - Custo Médio Por Reunião</title>
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/favicon/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/favicon/favicon-16x16.png"
-    />
-    <link rel="manifest" href="site.webmanifest" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>CMPR - Custo Médio Por Reunião</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <div class="header">
     <h1>CMPR</h1>
     <h2>Custo Médio Por Reunião</h2>
+  </div>
 
-    <div id="alert"></div>
 
-    <div id="formStart">
+  <div id="alert"></div>
+
+  <div id="formStart">
+    <div>
       <p>Parâmetros:</p>
       <label title="ex. 40 horas semanais x 5 semanas = 200 horas por mês">
-        <input
-          type="number"
-          name="hoursPerMonth"
-          placeholder="200"
-          value="200"
-          style="width: 45px"
-        />
+        <input type="number" name="hoursPerMonth" placeholder="200" value="200" style="width: 45px" />
         <span>horas por mês</span>
       </label>
 
       <p>Opções de Cadastro:</p>
       <label>
-        <input
-          type="radio"
-          name="registrationOption"
-          value="salaries"
-          checked
-        />
+        <input type="radio" name="registrationOption" value="salaries" checked />
         <span>Cadastrar Salários</span>
       </label>
       <label>
@@ -64,27 +46,17 @@
         <div id="salariesBox">
           <label>
             <span>R$</span>
-            <input
-              type="number"
-              name="salaries[]"
-              placeholder="0.00"
-              value="998.00"
-            />
+            <input type="number" name="salaries[]" placeholder="0.00" value="998.00" />
           </label>
           <label>
             <span>R$</span>
-            <input
-              type="number"
-              name="salaries[]"
-              placeholder="0.00"
-              value="998.00"
-            />
+            <input type="number" name="salaries[]" placeholder="0.00" value="998.00" />
           </label>
         </div>
         <br />
         <div>
           <button id="addSalary">+ Adicionar Salário</button>
-          <button id="startSalary">&gt; Iniciar</button>
+          <button id="startSalary" class="green">&gt; Iniciar</button>
         </div>
       </div>
 
@@ -92,21 +64,18 @@
         <p>Média Salarial:</p>
         <label>
           <span>R$</span>
-          <input
-            type="number"
-            name="salaryAverage"
-            placeholder="0.00"
-            value="998.00"
-          />
+          <input type="number" name="salaryAverage" placeholder="0.00" value="998.00" />
         </label>
         <br />
         <div>
-          <button id="startAverage">&gt; Iniciar</button>
+          <button id="startAverage" class="green" >&gt; Iniciar</button>
         </div>
       </div>
     </div>
+  </div>
 
-    <div id="boxMeeting">
+  <div id="boxMeeting">
+    <div>
       <p>Está custando:</p>
       <div id="value">
         <span id="currency">R$</span>
@@ -122,69 +91,63 @@
       <p>Já dura:</p>
       <div id="duration">0 minutos</div>
     </div>
+  </div>
 
-    <div id="formStop">
-      <br />
-      <button id="stopMeet">&gt; Encerrar reunião</button>
-    </div>
+  <div id="formStop">
+    <br />
+    <button id="stopMeet">&gt; Encerrar reunião</button>
+  </div>
 
-    <div id="resume">
-      <br />
-      <hr />
-      <h3>Relatório da última reunião</h3>
+  <div id="resume">
+    <br />
+    <hr />
+    <h3>Relatório da última reunião</h3>
 
-      <dl id="resumeRegistrationOption">
-        <dt>Opção de Cadastro:</dt>
-        <dd>--</dd>
-      </dl>
+    <dl id="resumeRegistrationOption">
+      <dt>Opção de Cadastro:</dt>
+      <dd>--</dd>
+    </dl>
 
-      <dl id="resumeSalaries">
-        <dt>Salários:</dt>
-        <dd>--</dd>
-      </dl>
+    <dl id="resumeSalaries">
+      <dt>Salários:</dt>
+      <dd>--</dd>
+    </dl>
 
-      <dl id="resumeAverage">
-        <dt>Média Salarial:</dt>
-        <dd>--</dd>
-      </dl>
+    <dl id="resumeAverage">
+      <dt>Média Salarial:</dt>
+      <dd>--</dd>
+    </dl>
 
-      <dl id="resumeCost">
-        <dt>Custo:</dt>
-        <dd>--</dd>
-      </dl>
+    <dl id="resumeCost">
+      <dt>Custo:</dt>
+      <dd>--</dd>
+    </dl>
 
-      <dl id="resumeInitClock">
-        <dt>Começou:</dt>
-        <dd>--</dd>
-      </dl>
+    <dl id="resumeInitClock">
+      <dt>Começou:</dt>
+      <dd>--</dd>
+    </dl>
 
-      <dl id="resumeDuration">
-        <dt>Durou:</dt>
-        <dd>--</dd>
-      </dl>
-    </div>
+    <dl id="resumeDuration">
+      <dt>Durou:</dt>
+      <dd>--</dd>
+    </dl>
+  </div>
 
-    <div id="poweredBy">
-      <br />
-      <hr />
+  <div id="poweredBy">
+    <br />
+    <!-- <hr /> -->
 
-      Feito com <span id="heart">&#10084;</span> pelo
-      <a
-        href="https://dotenorio.com"
-        title="Veja mais sobre o criador desta ferramenta!"
-        >dotenorio</a
-      >
+    Feito com <span id="heart">&#10084;</span> pelo
+    <a href="https://dotenorio.com" title="Veja mais sobre o criador desta ferramenta!">dotenorio</a>
 
-      <br />
+    <br />
 
-      Veja o projeto no
-      <a
-        href="https://github.com/dotenorio/cmpr"
-        title="Ver este projeto no Github"
-        >Github</a
-      >
-    </div>
+    Veja o projeto no
+    <a href="https://github.com/dotenorio/cmpr" title="Ver este projeto no Github">Github</a>
+  </div>
 
-    <script type="text/javascript" src="./script.js"></script>
-  </body>
+  <script type="text/javascript" src="./script.js"></script>
+</body>
+
 </html>

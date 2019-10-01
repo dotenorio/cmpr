@@ -7,6 +7,7 @@ const resumeObject = {}
 
 function initTheClock () {
   const initClock = document.querySelector('#initClock')
+
   const startTime = new Date()
   initClock.innerHTML = startTime.toLocaleString()
 
@@ -25,8 +26,7 @@ function getDuration (startTime) {
     const hourPlural = hours === 1 ? 'hora' : 'horas'
 
     const normalizeMinutes = minutes - 60 * hours
-    const normalizeMinutesPlural =
-      normalizeMinutes === 1 ? 'minuto' : 'minutos'
+    const normalizeMinutesPlural = normalizeMinutes === 1 ? 'minuto' : 'minutos'
 
     duration.innerHTML = `${hours} ${hourPlural} e ${normalizeMinutes} ${normalizeMinutesPlural}`
   }
@@ -61,9 +61,7 @@ function erase () {
 }
 
 function getSalaryPerMinute (salary) {
-  const hoursPerMonthElement = document.querySelector(
-    'input[name="hoursPerMonth"]'
-  )
+  const hoursPerMonthElement = document.querySelector('input[name="hoursPerMonth"]')
 
   const alert = document.querySelector('#alert')
 
@@ -72,7 +70,7 @@ function getSalaryPerMinute (salary) {
       Eu preciso da quantidade de horas que os envolvidos trabalham por mês para iniciar uma reunião :) <br>
       <i>${hoursPerMonthElement.parentNode.title}</i>
     `
-    alert.style.display = 'block'
+    alert.style.display = 'flex'
     return
   }
 
@@ -87,7 +85,7 @@ function getSalaryPerMinute (salary) {
 function toggleForm () {
   const blockOrNone = element => {
     const display = window.getComputedStyle(element, null).display
-    return display === 'block' ? 'none' : 'block'
+    return display === 'flex' ? 'none' : 'flex'
   }
 
   const elements = ['formStart', 'formStop', 'boxMeeting']
@@ -148,9 +146,7 @@ function initMeetAverage (salary) {
   initMeetIntervals(average, startTime)
 }
 
-const registrationOptions = document.querySelectorAll(
-  'input[name="registrationOption"]'
-)
+const registrationOptions = document.querySelectorAll('input[name="registrationOption"]')
 registrationOptions.forEach(option => {
   option.addEventListener('change', e => {
     const divsOptions = document.querySelectorAll('.registrationBox')
@@ -161,7 +157,7 @@ registrationOptions.forEach(option => {
     let value = e.target.value
     value = value.charAt(0).toUpperCase() + value.slice(1)
     const div = document.querySelector(`#registration${value}`)
-    div.style.display = 'block'
+    div.style.display = 'flex'
 
     resumeObject.registrationOption = value
   })
@@ -183,7 +179,7 @@ addSalary.addEventListener('click', () => {
 
   const a = document.createElement('a')
   a.setAttribute('href', 'javascript:void(0)')
-  a.innerHTML = '&times;'
+  a.innerHTML = '<button class="red">&times;</button>'
   a.addEventListener('click', e => {
     e.preventDefault()
     e.target.parentNode.remove()
@@ -198,9 +194,7 @@ addSalary.addEventListener('click', () => {
 
 const startSalary = document.querySelector('#startSalary')
 startSalary.addEventListener('click', () => {
-  const inputSalaries = [
-    ...document.querySelectorAll('input[name="salaries[]"]')
-  ]
+  const inputSalaries = [...document.querySelectorAll('input[name="salaries[]"]')]
 
   const salaries = inputSalaries
     .map(inputSalary => {
@@ -213,9 +207,8 @@ startSalary.addEventListener('click', () => {
   const alert = document.querySelector('#alert')
 
   if (salaries.length < 2) {
-    alert.innerHTML =
-      'Eu preciso de ao menos dois salários válidos para iniciar uma reunião :)'
-    alert.style.display = 'block'
+    alert.innerHTML = 'Eu preciso de ao menos dois salários válidos para iniciar uma reunião :)'
+    alert.style.display = 'flex'
     return
   }
 
@@ -241,8 +234,7 @@ startAverage.addEventListener('click', () => {
 const stopMeet = document.querySelector('#stopMeet')
 stopMeet.addEventListener('click', () => {
   const registrationOption = resumeObject.registrationOption || 'Salaries'
-  const registrationOptionText =
-    registrationOption === 'Salaries' ? 'Salários' : 'Média Salarial'
+  const registrationOptionText = registrationOption === 'Salaries' ? 'Salários' : 'Média Salarial'
 
   const salaries = resumeObject.salaries
   const average = resumeObject.average
@@ -255,24 +247,19 @@ stopMeet.addEventListener('click', () => {
   erase()
   toggleForm()
 
-  document.querySelector(
-    '#resumeRegistrationOption > dd'
-  ).innerText = registrationOptionText
+  document.querySelector('#resumeRegistrationOption > dd').innerText = registrationOptionText
 
   document.querySelectorAll('#resumeSalaries, #resumeAverage').forEach(el => {
     el.style.display = 'none'
   })
-  document.querySelector(`#resume${registrationOption}`).style.display =
-    'block'
+  document.querySelector(`#resume${registrationOption}`).style.display = 'flex'
   document.querySelector('#resumeSalaries > dd').innerText = salaries
-  document.querySelector(
-    '#resumeAverage > dd'
-  ).innerText = `${currency} ${average}`
+  document.querySelector('#resumeAverage > dd').innerText = `${currency} ${average}`
 
   document.querySelector('#resumeCost > dd').innerText = `${currency} ${cost}`
   document.querySelector('#resumeCost > dd').innerText = `${currency} ${cost}`
   document.querySelector('#resumeCost > dd').innerText = `${currency} ${cost}`
   document.querySelector('#resumeInitClock > dd').innerText = initClock
   document.querySelector('#resumeDuration > dd').innerText = duration
-  document.querySelector('#resume').style.display = 'block'
+  document.querySelector('#resume').style.display = 'flex'
 })
