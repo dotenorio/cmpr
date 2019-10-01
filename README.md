@@ -26,8 +26,7 @@ Custo Médio Por Reunião
 
 ## TODO
 
-- Criar uma folha de estilos para a ferramenta
-- Configurar now.json
+- Veja a [issues](https://github.com/dotenorio/cmpr/issues) do projeto
 
 ## Deixe sua estrela
 
