@@ -1,6 +1,8 @@
 {
   "name": "CMPR - Custo Médio Por Reunião",
   "short_name": "CMPR - Custo Médio Por Reunião",
+  "lang": "pt-BR",
+  "start_url": "/index.html",
   "icons": [
     {
       "src": "/favicon/android-chrome-192x192.png",
@@ -13,7 +15,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#ffffff",
+  "theme_color": "#222222",
   "background_color": "#ffffff",
   "display": "standalone"
 }

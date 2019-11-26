@@ -1,140 +1,136 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="Description" content="Calculador de custo médio por reunião">
-    <title>CMPR - Custo Médio Por Reunião</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
-    <link rel="manifest" href="site.webmanifest" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
 
-  <body>
-    <div class="header">
-      <h1>CMPR</h1>
-      <h2>Custo Médio Por Reunião</h2>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="Description" content="Calculador de custo médio por reunião">
+  <meta name="theme-color" content="#222222" />
+  <title>CMPR - Custo Médio Por Reunião</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-    <div id="alert"></div>
+<body>
+  <div class="header">
+    <h1>CMPR</h1>
+    <h2>Custo Médio Por Reunião</h2>
+  </div>
 
-    <div id="formStart">
-      <div>
-        <p>Parâmetros:</p>
-        <label title="ex. 40 horas semanais x 5 semanas = 200 horas por mês">
-          <input
-            type="number"
-            name="hoursPerMonth"
-            placeholder="200"
-            value="200"
-            style="width: 50px"
-          />
-          <span>horas por mês</span>
-        </label>
+  <div id="alert"></div>
 
-        <p>Opções de Cadastro:</p>
-        <label class="with-radio">
-          <input type="radio" name="registrationOption" value="salaries" checked />
-          <span>Cadastrar Salários</span>
-        </label>
-        <label class="with-radio">
-          <input type="radio" name="registrationOption" value="average" />
-          <span>Média Salarial</span>
-        </label>
+  <div id="formStart">
+    <div>
+      <p>Parâmetros:</p>
+      <label title="ex. 40 horas semanais x 5 semanas = 200 horas por mês">
+        <input type="number" name="hoursPerMonth" placeholder="200" value="200" style="width: 50px" />
+        <span>horas por mês</span>
+      </label>
 
-        <div id="registrationSalaries" class="registrationBox">
-          <p>Salários:</p>
-          <div id="salariesBox">
-            <label>
-              <span>R$</span>
-              <input type="number" name="salaries[]" placeholder="0.00" value="998.00" />
-            </label>
-            <label>
-              <span>R$</span>
-              <input type="number" name="salaries[]" placeholder="0.00" value="998.00" />
-            </label>
-          </div>
-          <br />
-          <div>
-            <button id="addSalary">+ Adicionar Salário</button>
-            <button id="startSalary" class="green">&gt; Iniciar</button>
-          </div>
-        </div>
+      <p>Opções de Cadastro:</p>
+      <label class="with-radio">
+        <input type="radio" name="registrationOption" value="salaries" checked />
+        <span>Cadastrar Salários</span>
+      </label>
+      <label class="with-radio">
+        <input type="radio" name="registrationOption" value="average" />
+        <span>Média Salarial</span>
+      </label>
 
-        <div id="registrationAverage" class="registrationBox">
-          <p>Média Salarial:</p>
+      <div id="registrationSalaries" class="registrationBox">
+        <p>Salários:</p>
+        <div id="salariesBox">
           <label>
             <span>R$</span>
-            <input type="number" name="salaryAverage" placeholder="0.00" value="998.00" />
+            <input type="number" name="salaries[]" placeholder="0.00" value="998.00" />
           </label>
-          <br />
-          <div>
-            <button id="startAverage" class="green">&gt; Iniciar</button>
-          </div>
+          <label>
+            <span>R$</span>
+            <input type="number" name="salaries[]" placeholder="0.00" value="998.00" />
+          </label>
+        </div>
+        <br />
+        <div>
+          <button id="addSalary">+ Adicionar Salário</button>
+          <button id="startSalary" class="green">&gt; Iniciar</button>
+        </div>
+      </div>
+
+      <div id="registrationAverage" class="registrationBox">
+        <p>Média Salarial:</p>
+        <label>
+          <span>R$</span>
+          <input type="number" name="salaryAverage" placeholder="0.00" value="998.00" />
+        </label>
+        <br />
+        <div>
+          <button id="startAverage" class="green">&gt; Iniciar</button>
         </div>
       </div>
     </div>
+  </div>
 
-    <div id="boxMeeting">
-      <div>
-        <p>Está custando:</p>
-        <div id="value">
-          <span id="currency">R$</span>
-          <span id="cost">0.00</span>
-        </div>
-
-        <p>Começou:</p>
-        <div id="initClock">00/00/0000 00:00:00</div>
-
-        <p>Agora são:</p>
-        <div id="actualClock">00/00/0000 00:00:00</div>
-
-        <p>Já dura:</p>
-        <div id="duration">0 minutos</div>
+  <div id="boxMeeting">
+    <div>
+      <p>Está custando:</p>
+      <div id="value">
+        <span id="currency">R$</span>
+        <span id="cost">0.00</span>
       </div>
+
+      <p>Começou:</p>
+      <div id="initClock">00/00/0000 00:00:00</div>
+
+      <p>Agora são:</p>
+      <div id="actualClock">00/00/0000 00:00:00</div>
+
+      <p>Já dura:</p>
+      <div id="duration">0 minutos</div>
     </div>
+  </div>
 
-    <div id="formStop">
-      <br />
-      <button id="stopMeet">&gt; Encerrar reunião</button>
-    </div>
+  <div id="formStop">
+    <br />
+    <button id="stopMeet">&gt; Encerrar reunião</button>
+  </div>
 
-    <div id="resume">
-      <h3>Relatório da última reunião</h3>
+  <div id="resume">
+    <h3>Relatório da última reunião</h3>
 
-      <dl id="resumeRegistrationOption">
-        <dt>Opção de Cadastro:</dt>
-        <dd>--</dd>
-      </dl>
+    <dl id="resumeRegistrationOption">
+      <dt>Opção de Cadastro:</dt>
+      <dd>--</dd>
+    </dl>
 
-      <dl id="resumeSalaries">
-        <dt>Salários:</dt>
-        <dd style="margin-left: 0.3em;">--</dd>
-      </dl>
+    <dl id="resumeSalaries">
+      <dt>Salários:</dt>
+      <dd style="margin-left: 0.3em;">--</dd>
+    </dl>
 
-      <dl id="resumeAverage">
-        <dt>Média Salarial:</dt>
-        <dd style="margin-left: 0.3em;">--</dd>
-      </dl>
+    <dl id="resumeAverage">
+      <dt>Média Salarial:</dt>
+      <dd style="margin-left: 0.3em;">--</dd>
+    </dl>
 
-      <dl id="resumeCost">
-        <dt>Custo:</dt>
-        <dd>--</dd>
-      </dl>
+    <dl id="resumeCost">
+      <dt>Custo:</dt>
+      <dd>--</dd>
+    </dl>
 
-      <dl id="resumeInitClock">
-        <dt>Começou:</dt>
-        <dd>--</dd>
-      </dl>
+    <dl id="resumeInitClock">
+      <dt>Começou:</dt>
+      <dd>--</dd>
+    </dl>
 
-      <dl id="resumeDuration">
-        <dt>Durou:</dt>
-        <dd>--</dd>
-      </dl>
-    </div>
+    <dl id="resumeDuration">
+      <dt>Durou:</dt>
+      <dd>--</dd>
+    </dl>
+  </div>
   </div>
 
   <div id="poweredBy">

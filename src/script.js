@@ -263,3 +263,11 @@ stopMeet.addEventListener('click', () => {
   document.querySelector('#resumeDuration > dd').innerText = duration
   document.querySelector('#resume').style.display = 'flex'
 })
+
+window.onload = () => {
+  'use strict'
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js')
+  }
+}
