@@ -99,6 +99,9 @@ dl > dd {
   padding: 5px;
   font-weight: 200;
 }
+div.buttons {
+  text-align: center;
+}
 
 #alert {
   display: none;
