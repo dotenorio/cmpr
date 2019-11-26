@@ -2,6 +2,8 @@
 
 Custo Médio Por Reunião
 
+https://cmpr.now.sh/
+
 ## Screenshots
 
 ### Parâmetros
