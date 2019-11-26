@@ -28,7 +28,7 @@ input {
   margin: 5px;
 }
 button {
-  background: #5d9cec;
+  background: #1357a5;
   color: white;
   border: none;
   font-size: 18px;
@@ -37,7 +37,7 @@ button {
   min-width: 38px;
 }
 button:hover {
-  background: #4a89dc;
+  background: #1d75e2;
 }
 button.red {
   background: #ed5565;
@@ -46,10 +46,10 @@ button.red:hover {
   background: #da4453;
 }
 button.green {
-  background: #48cfad;
+  background: #1c6451;
 }
 button.green:hover {
-  background: #37bc98;
+  background: #268c6e;
 }
 input {
   border: 1px solid #999;
