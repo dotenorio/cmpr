@@ -20,12 +20,21 @@ p {
 label {
   display: block;
 }
+label.with-radio {
+  display: flex;
+  align-items: center;
+}
 input {
   border: 1px solid #999;
   border-radius: 3px;
   font-size: 18px;
   padding: 8px;
   margin: 5px;
+}
+input[type='radio'] {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
 }
 button {
   background: #1357a5;
