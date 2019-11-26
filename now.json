@@ -2,6 +2,6 @@
   "name": "cmpr",
   "version": 2,
   "public": true,
-  "builds": [{ "src": "src/*.*", "use": "@now/static" }],
+  "builds": [{ "src": "src/**/*.*", "use": "@now/static" }],
   "routes": [{ "src": "/", "dest": "/src/index.html" }, { "src": "/(.*)", "dest": "/src/$1" }]
 }
