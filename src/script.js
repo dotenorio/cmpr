@@ -265,9 +265,36 @@ stopMeet.addEventListener('click', () => {
 })
 
 window.onload = () => {
-  'use strict'
+  const showUpdateBar = worker => {
+    const updateBar = document.querySelector('#updateBar')
+    updateBar.className = 'show'
+
+    const reload = document.querySelector('#reload')
+    reload.addEventListener('click', () => {
+      worker.postMessage({ action: 'skipWaiting' })
+    })
+  }
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js')
+    navigator.serviceWorker.register('./sw.js').then(reg => {
+      reg.addEventListener('updatefound', () => {
+        const worker = reg.installing
+
+        worker.addEventListener('statechange', () => {
+          switch (worker.state) {
+            case 'installed':
+              if (navigator.serviceWorker.controller) showUpdateBar(worker)
+              break
+          }
+        })
+      })
+    })
+
+    let refreshing
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (refreshing) return
+      window.location.reload()
+      refreshing = true
+    })
   }
 }

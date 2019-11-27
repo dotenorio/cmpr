@@ -158,3 +158,37 @@ div.buttons {
 #heart {
   color: red;
 }
+
+#updateBar {
+  visibility: hidden;
+  width: 90vw;
+  margin-left: -45vw;
+  background-color: #ddd;
+  color: #000;
+  text-align: center;
+  border-radius: 4px;
+  padding: 16px 0;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 20px;
+  font-size: 14px;
+}
+#updateBar a {
+  font-weight: bold;
+  color: #1357a5;
+}
+#updateBar.show {
+  visibility: visible;
+  animation: fadein 0.5s;
+}
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 20px;
+    opacity: 1;
+  }
+}
