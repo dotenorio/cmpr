@@ -161,13 +161,13 @@ div.buttons {
 
 #updateBar {
   visibility: hidden;
-  width: 90vw;
+  width: calc(90vw - 32px);
   margin-left: -45vw;
   background-color: #ddd;
   color: #000;
   text-align: center;
   border-radius: 4px;
-  padding: 16px 0;
+  padding: 16px;
   position: fixed;
   z-index: 1;
   left: 50%;
