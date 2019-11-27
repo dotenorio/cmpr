@@ -1,6 +1,6 @@
 {
   "name": "cmpr",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Calculador de custo médio por reunião",
   "main": "./src/index.html",
   "license": "MIT",

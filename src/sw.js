@@ -1,6 +1,6 @@
 /* eslint no-undef: 0 */
 
-const cacheName = 'cmpr-pwa-1.0.1'
+const cacheName = 'cmpr-pwa-1.0.2'
 const filesToCache = [
   '/',
   '/index.html',
